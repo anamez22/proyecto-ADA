@@ -1,0 +1,167 @@
+[
+  {
+    "code": "int fibonacci_recursive(int n) {\n    if (n <= 1)\n        return n;\n    return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2);\n}",
+    "complexity": "O(2^n)",
+    "label": 6
+  },
+  {
+    "code": "int get_max(int a, int b) {\n    return (a > b) ? a : b;\n}",
+    "complexity": "O(1)",
+    "label": 0
+  },
+  {
+    "code": "int partition(int arr[], int low, int high) {\n    int pivot = arr[high];\n    int i = low - 1;\n    for (int j = low; j < high; j++) {\n        if (arr[j] < pivot) {\n            i++;\n            int temp = arr[i];\n            arr[i] = arr[j];\n            arr[j] = temp;\n        }\n    }\n    int temp = arr[i + 1];\n    arr[i + 1] = arr[high];\n    arr[high] = temp;\n    return i + 1;\n}\n\nvoid quick_sort(int arr[], int low, int high) {\n    if (low < high) {\n        int pi = partition(arr, low, high);\n        quick_sort(arr, low, pi - 1);\n        quick_sort(arr, pi + 1, high);\n    }\n}",
+    "complexity": "O(n log n)",
+    "label": 3
+  },
+  {
+    "code": "void matrix_multiply(int A[10][10], int B[10][10], int C[10][10], int n) {\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            C[i][j] = 0;\n            for (int k = 0; k < n; k++) {\n                C[i][j] += A[i][k] * B[k][j];\n            }\n        }\n    }\n}",
+    "complexity": "O(n²)",
+    "label": 4
+  },
+  {
+    "code": "void generate_subsets(int arr[], int n, int index, int subset[], int subsize) {\n    if (index == n) {\n        for (int i = 0; i < subsize; i++)\n            printf(\"%d \", subset[i]);\n        printf(\"\\n\");\n        return;\n    }\n    generate_subsets(arr, n, index + 1, subset, subsize);\n    subset[subsize] = arr[index];\n    generate_subsets(arr, n, index + 1, subset, subsize + 1);\n}",
+    "complexity": "O(2^n)",
+    "label": 6
+  },
+  {
+    "code": "void floyd_warshall(int dist[10][10], int n) {\n    for (int k = 0; k < n; k++) {\n        for (int i = 0; i < n; i++) {\n            for (int j = 0; j < n; j++) {\n                if (dist[i][k] + dist[k][j] < dist[i][j])\n                    dist[i][j] = dist[i][k] + dist[k][j];\n            }\n        }\n    }\n}",
+    "complexity": "O(n³)",
+    "label": 5
+  },
+  {
+    "code": "void binary_tree_search(struct Node* root, int target) {\n    if (root == NULL)\n        return;\n    if (root->value == target)\n        return;\n    else if (root->value > target)\n        binary_tree_search(root->left, target);\n    else\n        binary_tree_search(root->right, target);\n}",
+    "complexity": "O(log n)",
+    "label": 1
+  },
+  {
+    "code": "int binary_search(int arr[], int n, int target) {\n    int left = 0, right = n - 1;\n    while (left <= right) {\n        int mid = left + (right - left) / 2;\n        if (arr[mid] == target)\n            return mid;\n        else if (arr[mid] < target)\n            left = mid + 1;\n        else\n            right = mid - 1;\n    }\n    return -1;\n}",
+    "complexity": "O(log n)",
+    "label": 1
+  },
+  {
+    "code": "void copy_array(int src[], int dest[], int n) {\n    for (int i = 0; i < n; i++) {\n        dest[i] = src[i];\n    }\n}",
+    "complexity": "O(n)",
+    "label": 2
+  },
+  {
+    "code": "int get_first(int arr[], int n) {\n    return arr[0];\n}",
+    "complexity": "O(1)",
+    "label": 0
+  },
+  {
+    "code": "int get_constant() {\n    return 42;\n}",
+    "complexity": "O(1)",
+    "label": 0
+  },
+  {
+    "code": "void swap(int* x, int* y) {\n    int temp = *x;\n    *x = *y;\n    *y = temp;\n}",
+    "complexity": "O(1)",
+    "label": 0
+  },
+  {
+    "code": "void insertion_sort(int arr[], int n) {\n    for (int i = 1; i < n; i++) {\n        int key = arr[i];\n        int j = i - 1;\n        while (j >= 0 && arr[j] > key) {\n            arr[j + 1] = arr[j];\n            j--;\n        }\n        arr[j + 1] = key;\n    }\n}",
+    "complexity": "O(n²)",
+    "label": 4
+  },
+  {
+    "code": "int count_permutations(int n) {\n    if (n <= 1)\n        return 1;\n    return n * count_permutations(n - 1);\n}\n\nvoid generate_binary_strings(int n, char current[], int pos) {\n    if (pos == n) {\n        printf(\"%s\\n\", current);\n        return;\n    }\n    current[pos] = '0';\n    generate_binary_strings(n, current, pos + 1);\n    current[pos] = '1';\n    generate_binary_strings(n, current, pos + 1);\n}",
+    "complexity": "O(2^n)",
+    "label": 6
+  },
+  {
+    "code": "void matrix_multiply_standard(int A[10][10], int B[10][10], int C[10][10], int n) {\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            C[i][j] = 0;\n            for (int k = 0; k < n; k++) {\n                C[i][j] += A[i][k] * B[k][j];\n            }\n        }\n    }\n}",
+    "complexity": "O(n³)",
+    "label": 5
+  },
+  {
+    "code": "void bubble_sort(int arr[], int n) {\n    for (int i = 0; i < n - 1; i++) {\n        for (int j = 0; j < n - i - 1; j++) {\n            if (arr[j] > arr[j + 1]) {\n                int temp = arr[j];\n                arr[j] = arr[j + 1];\n                arr[j + 1] = temp;\n            }\n        }\n    }\n}",
+    "complexity": "O(n²)",
+    "label": 4
+  },
+  {
+    "code": "void reverse_array(int arr[], int n) {\n    for (int i = 0; i < n / 2; i++) {\n        int temp = arr[i];\n        arr[i] = arr[n - 1 - i];\n        arr[n - 1 - i] = temp;\n    }\n}",
+    "complexity": "O(n)",
+    "label": 2
+  },
+  {
+    "code": "int all_pairs_sum(int arr[], int n) {\n    int sum = 0;\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            sum += arr[i] + arr[j];\n        }\n    }\n    return sum;\n}",
+    "complexity": "O(n²)",
+    "label": 4
+  },
+  {
+    "code": "int multiply_by_two(int n) {\n    return n * 2;\n}",
+    "complexity": "O(1)",
+    "label": 0
+  },
+  {
+    "code": "int sum_array(int arr[], int n) {\n    int sum = 0;\n    for (int i = 0; i < n; i++) {\n        sum += arr[i];\n    }\n    return sum;\n}",
+    "complexity": "O(n)",
+    "label": 2
+  },
+  {
+    "code": "void heapify(int arr[], int n, int i) {\n    int largest = i;\n    int left = 2 * i + 1;\n    int right = 2 * i + 2;\n    if (left < n && arr[left] > arr[largest])\n        largest = left;\n    if (right < n && arr[right] > arr[largest])\n        largest = right;\n    if (largest != i) {\n        int temp = arr[i];\n        arr[i] = arr[largest];\n        arr[largest] = temp;\n        heapify(arr, n, largest);\n    }\n}\n\nvoid heap_sort(int arr[], int n) {\n    for (int i = n / 2 - 1; i >= 0; i--)\n        heapify(arr, n, i);\n    for (int i = n - 1; i > 0; i--) {\n        int temp = arr[0];\n        arr[0] = arr[i];\n        arr[i] = temp;\n        heapify(arr, i, 0);\n    }\n}",
+    "complexity": "O(n log n)",
+    "label": 3
+  },
+  {
+    "code": "int count_occurrences(int arr[], int n, int target) {\n    int count = 0;\n    for (int i = 0; i < n; i++) {\n        if (arr[i] == target)\n            count++;\n    }\n    return count;\n}",
+    "complexity": "O(n)",
+    "label": 2
+  },
+  {
+    "code": "int find_max(int arr[], int n) {\n    int max = arr[0];\n    for (int i = 1; i < n; i++) {\n        if (arr[i] > max)\n            max = arr[i];\n    }\n    return max;\n}",
+    "complexity": "O(n)",
+    "label": 2
+  },
+  {
+    "code": "int linear_search(int arr[], int n, int target) {\n    for (int i = 0; i < n; i++) {\n        if (arr[i] == target)\n            return i;\n    }\n    return -1;\n}",
+    "complexity": "O(n)",
+    "label": 2
+  },
+  {
+    "code": "void set_element(int arr[], int val) {\n    arr[0] = val;\n}",
+    "complexity": "O(1)",
+    "label": 0
+  },
+  {
+    "code": "void merge(int arr[], int left, int mid, int right) {\n    int n1 = mid - left + 1;\n    int n2 = right - mid;\n    int L[n1], R[n2];\n    for (int i = 0; i < n1; i++)\n        L[i] = arr[left + i];\n    for (int j = 0; j < n2; j++)\n        R[j] = arr[mid + 1 + j];\n    int i = 0, j = 0, k = left;\n    while (i < n1 && j < n2) {\n        if (L[i] <= R[j]) {\n            arr[k++] = L[i++];\n        } else {\n            arr[k++] = R[j++];\n        }\n    }\n    while (i < n1)\n        arr[k++] = L[i++];\n    while (j < n2)\n        arr[k++] = R[j++];\n}\n\nvoid merge_sort(int arr[], int left, int right) {\n    if (left < right) {\n        int mid = left + (right - left) / 2;\n        merge_sort(arr, left, mid);\n        merge_sort(arr, mid + 1, right);\n        merge(arr, left, mid, right);\n    }\n}",
+    "complexity": "O(n log n)",
+    "label": 3
+  },
+  {
+    "code": "void assign_value(int* ptr, int val) {\n    *ptr = val;\n}",
+    "complexity": "O(1)",
+    "label": 0
+  },
+  {
+    "code": "void triple_nested_loop(int arr[10][10][10], int n) {\n    int sum = 0;\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            for (int k = 0; k < n; k++) {\n                sum += arr[i][j][k];\n            }\n        }\n    }\n}",
+    "complexity": "O(n³)",
+    "label": 5
+  },
+  {
+    "code": "int power_recursive(int base, int exp) {\n    if (exp == 0)\n        return 1;\n    if (exp % 2 == 0)\n        return power_recursive(base * base, exp / 2);\n    else\n        return base * power_recursive(base * base, exp / 2);\n}",
+    "complexity": "O(log n)",
+    "label": 1
+  },
+  {
+    "code": "int knapsack_exponential(int values[], int weights[], int capacity, int n, int index) {\n    if (index == n || capacity == 0)\n        return 0;\n    if (weights[index] > capacity)\n        return knapsack_exponential(values, weights, capacity, n, index + 1);\n    int include = values[index] + knapsack_exponential(values, weights, capacity - weights[index], n, index + 1);\n    int exclude = knapsack_exponential(values, weights, capacity, n, index + 1);\n    return (include > exclude) ? include : exclude;\n}",
+    "complexity": "O(2^n)",
+    "label": 6
+  },
+  {
+    "code": "void selection_sort(int arr[], int n) {\n    for (int i = 0; i < n - 1; i++) {\n        int min_idx = i;\n        for (int j = i + 1; j < n; j++) {\n            if (arr[j] < arr[min_idx])\n                min_idx = j;\n        }\n        int temp = arr[i];\n        arr[i] = arr[min_idx];\n        arr[min_idx] = temp;\n    }\n}",
+    "complexity": "O(n²)",
+    "label": 4
+  },
+  {
+    "code": "int add_two(int a, int b) {\n    int sum = a + b;\n    return sum;\n}",
+    "complexity": "O(1)",
+    "label": 0
+  },
+  {
+    "code": "int binary_search_recursive(int arr[], int left, int right, int target) {\n    if (left > right)\n        return -1;\n    int mid = left + (right - left) / 2;\n    if (arr[mid] == target)\n        return mid;\n    else if (arr[mid] < target)\n        return binary_search_recursive(arr, mid + 1, right, target);\n    else\n        return binary_search_recursive(arr, left, mid - 1, target);\n}",
+    "complexity": "O(log n)",
+    "label": 1
+  }
+]
